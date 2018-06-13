@@ -120,13 +120,16 @@ public class Main_frame extends JFrame {
 			public void actionPerformed(ActionEvent arg0) { //로그인 되면 입력된 학번, 이름 가져옴
 				String client_name=textField.getText();
 				String client_id=textField_1.getText();
-				
 				int name_flag=0;//사용자 목록에 로그인 시도한 사람 있는지 확인
 				for(int i=1; i<clientobj.size(); i++) {
 					if(clientobj.get(i).name.matches(client_name)) {
 						name_flag=i;		//nameflag에 목록의 몇번째 줄에 있는 사람인지 학인
 					}
 				}
+				System.out.println(client_name);
+				System.out.println(client_id);
+				System.out.println(clientobj.get(name_flag).name);
+				System.out.println(clientobj.get(name_flag).id);
 				if(name_flag==0) {//목록에 해당 사용자 없다
 					Error_frame frame = new Error_frame();		//에러창 출력
 					frame.setVisible(true);
