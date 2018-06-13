@@ -8,7 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.Toolkit;
 
-public class Errorframe3 extends JFrame {
+public class Errorframe3 extends JFrame {//좌석을 배정받으려 하는 사람이 배정된 이미 자리가 있는 경우 띄우는 에러창
 
 	private JPanel contentPane;
 

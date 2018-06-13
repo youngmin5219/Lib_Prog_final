@@ -45,7 +45,7 @@ public class frame extends JFrame{
 	public static Client getuser() {
 		return user;
 	}
-	public static ArrayList<Seat> seatobj = new ArrayList<Seat>();
+	public static ArrayList<Seat> seatobj = new ArrayList<Seat>();//좌석의 배정 상태를 저장함
 	public void setseatobj(ArrayList<Seat> seatobj) {
 		this.seatobj = seatobj;
 	}
@@ -86,7 +86,7 @@ public class frame extends JFrame{
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnNewButton = new JButton("");
+		JButton btnNewButton = new JButton("");//로그아웃 버튼
 		btnNewButton.setBackground(Color.WHITE);
 		btnNewButton.setOpaque(false);
 		btnNewButton.setBorderPainted(false);

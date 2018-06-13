@@ -8,7 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.Toolkit;
 
-public class Error_frame extends JFrame {
+public class Error_frame extends JFrame {//로그인한 사람이 사용자 목록에 없는 경우 띄우주는 에러창
 
 	private JPanel contentPane;
 	private final JLabel lblNewLabel = new JLabel("");

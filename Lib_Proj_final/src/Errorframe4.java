@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.Toolkit;
 
-public class Errorframe4 extends JFrame {
+public class Errorframe4 extends JFrame {//사용자가 선택한 자리가 빈자리가 아닐 때 띠우는 에러창
 
 	private JPanel contentPane;
 

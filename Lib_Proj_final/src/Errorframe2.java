@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.Toolkit;
 
-public class Errorframe2 extends JFrame {
+public class Errorframe2 extends JFrame {//책을 반납하려는 사람이 책을 빌린 적 없을 때 나오는 에러창
 
 	private JPanel contentPane;
 

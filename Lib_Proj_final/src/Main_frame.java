@@ -85,7 +85,7 @@ public class Main_frame extends JFrame {
 	/**
 	 * Create the frame. 
 	 */
-	public Main_frame(ArrayList<Client> clientobj, ArrayList<Book> bookobj,String name, String id, int statusflag, ArrayList<Seat> seatobj) {
+	public Main_frame(ArrayList<Client> clientobj, ArrayList<Book> bookobj,String name, String id, int statusflag, ArrayList<Seat> seatobj) {//Mian_frame으로 사요자 목록, 책목록, 사용자이름, 사용자 id, 사용자의 교수/학생 여부, 좌석배정 정보를 보낸다.
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Main_frame.class.getResource("/pac/images (1).png")));
 		this.clientobj=clientobj;
 		this.bookobj=bookobj;
@@ -126,10 +126,6 @@ public class Main_frame extends JFrame {
 						name_flag=i;		//nameflag에 목록의 몇번째 줄에 있는 사람인지 학인
 					}
 				}
-				System.out.println(client_name);
-				System.out.println(client_id);
-				System.out.println(clientobj.get(name_flag).name);
-				System.out.println(clientobj.get(name_flag).id);
 				if(name_flag==0) {//목록에 해당 사용자 없다
 					Error_frame frame = new Error_frame();		//에러창 출력
 					frame.setVisible(true);
@@ -142,14 +138,14 @@ public class Main_frame extends JFrame {
 						frame.setVisible(true);
 					}
 					
-					if(rdbtnNewRadioButton.isSelected()&&(clientobj.get(name_flag).statusflag==1)) {
+					if(rdbtnNewRadioButton.isSelected()&&(clientobj.get(name_flag).statusflag==1)) {//학생의 로그인
 						user.name=client_name;
 						user.id=client_id;
 						frame frame5 = new frame(clientobj,bookobj,user.name,user.id,user.statusflag,seatobj);
 						frame5.setVisible(true);
 					}
 					
-					else if(rdbtnNewRadioButton_1.isSelected()&&(clientobj.get(name_flag).statusflag==0)) {
+					else if(rdbtnNewRadioButton_1.isSelected()&&(clientobj.get(name_flag).statusflag==0)) {//교수의 로그인
 						user.name=client_name;
 						user.id=client_id;
 						frame frame5 = new frame(clientobj,bookobj,user.name,user.id,user.statusflag,seatobj);

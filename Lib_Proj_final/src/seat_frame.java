@@ -77,9 +77,9 @@ public class seat_frame extends JFrame {
 			seatobj.add(seat);
 		}
 		
-		int emptyseat=0;
+		int emptyseat=0;//빈자리의 개수를 저장하는 변수
 		for(int i=0; i<60; i++) {
-			if(seatobj.get(i).user_id.equals("-")) {
+			if(seatobj.get(i).user_id.equals("-")) {//자리에 앉은 사용자의 id가 없으므로 빈자리
 				emptyseat++;
 			}
 		}
@@ -91,26 +91,27 @@ public class seat_frame extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnNewButton = new JButton("1");
+		//모든 좌석의 작동 방식은 동일하므로 주석은 첫ㅂ너째 좌석에만 달겠다.
+		JButton btnNewButton = new JButton("1");//1번좌석
 		if(!seatobj.get(0).user_id.equals("-")) {		//좌석이 발권되어있는 경우 버튼 안눌리게 설정
-			btnNewButton.setEnabled(false);
+			btnNewButton.setEnabled(false);//사용가능성을 거짓으로 설정
 		}
 		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent arg0) {//첫번째 좌석 선택
 				int flag=0;
 				for(int i=0; i<60; i++) {
-					if(seatobj.get(i).user_id.equals(user.id)&&seatobj.get(i).user_name.equals(user.name)) {
+					if(seatobj.get(i).user_id.equals(user.id)&&seatobj.get(i).user_name.equals(user.name)) {//좌석을 선택 한 사람이 이미 자리가 있는 경우 -> 에러
 						Errorframe3 frame = new Errorframe3();
 						frame.setVisible(true);
 						flag=1;
 					}	
 				}
-				if(flag==0) {
-						if(!seatobj.get(0).user_id.equals("-")) {
+				if(flag==0) {//사용자가 맡은 자리가 없음
+						if(!seatobj.get(0).user_id.equals("-")) {//그런데 선택한 자리가 빈자리가 아니다 -> 에러
 							Errorframe4 frame= new Errorframe4();
 							frame.setVisible(true);
 						}
-						else {
+						else {//선택한 자리가 빈자리 -> 자리를 맡는다
 							seatobj.get(0).user_id=user.id;
 							seatobj.get(0).user_name=user.name;
 							Seatlendframe frame = new Seatlendframe();

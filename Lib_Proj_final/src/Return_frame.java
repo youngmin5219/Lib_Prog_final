@@ -95,7 +95,7 @@ public class Return_frame extends JFrame {
 		contentPane.setLayout(null);
 		
 		String category2[] = {"제목", "저자", "출판사", "청구기호", "대여상황"};
-		DefaultTableModel model2 = new DefaultTableModel(category2, 30);	
+		DefaultTableModel model2 = new DefaultTableModel(category2, 30);	//30은 책 권수로 바꾸면 됨
 		
 		//button 반복문으로 책 권수만큼 만들기(button으로 이루어진 어레이로. button[0], button[1], button[2], button[3] 등등)
 		JTable personTable = new JTable(new DefaultTableModel(
@@ -120,8 +120,8 @@ public class Return_frame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				int book = personTable.getSelectedRow();		//몇번째열 선택했는지 나타내는 변수
 				for(int i=1; i<bookobj.size(); i++) {
-					if((personTable.getValueAt(personTable.getSelectedRow(), 3)).equals(bookobj.get(i).location)){
-						if(bookobj.get(i).lender.equals(user.name)&&bookobj.get(i).lenderid.equals(user.id)) {
+					if((personTable.getValueAt(personTable.getSelectedRow(), 3)).equals(bookobj.get(i).location)){//테이블에 있는 정보가 책의 청구번호와 일치 -> 올바른 책
+						if(bookobj.get(i).lender.equals(user.name)&&bookobj.get(i).lenderid.equals(user.id)) {//사용자와 책의 대여자의 정보가 일치 -> 반납 가능
 							returncheckframe frame = new returncheckframe(clientobj,bookobj,user.name,user.id,user.statusflag);
 							frame.setVisible(true);
 							bookobj.get(i).lender="-";	//대여자 정보 초기화
